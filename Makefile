@@ -1,6 +1,10 @@
+COMMIT := d4d0e57
+
 push:
 	@git clone https://github.com/alchemyplatform/rundler.git
-	@cd rundler && git checkout a8098944842124938e9f887e1557e557dad01ac6
+	@cd rundler && git checkout ${COMMIT}
 	@docker build -t truewallet/rundler:latest -f rundler/Dockerfile ./rundler
 	@docker push truewallet/rundler:latest
+	@docker image tag truewallet/rundler:latest truewallet/rundler:${COMMIT}
+	@docker push truewallet/rundler:${COMMIT}
 	@rm -rf rundler
