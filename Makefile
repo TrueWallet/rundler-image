@@ -1,4 +1,4 @@
-COMMIT := d4d0e57
+COMMIT := cd4f1af
 
 push:
 	@git clone https://github.com/alchemyplatform/rundler.git
